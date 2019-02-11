@@ -4,7 +4,7 @@
 error=false
 
 # Run clippy checks
-if [ "$CLIPPY" == "true" ]; then
+if $CLIPPY ; then
     cargo clippy --all-targets
     exit
 fi
@@ -30,6 +30,6 @@ if [ "$TRAVIS_OS_NAME" == "windows" ]; then
     cargo test -p winpty || error=true
 fi
 
-if [ $error == "true" ]; then
+if $error ; then
     exit 1
 fi
